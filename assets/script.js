@@ -25,7 +25,7 @@ var passwordLength
 function confirmPasswordLength(){
 passwordLength = window.prompt("Type password length")
 // confirms that onely a number between 8 and 128 is written 
-  if (passwordLength<8||passwordLength>128 || isNaN(passwordLength)){
+  if (passwordLength<4||passwordLength>128 || isNaN(passwordLength)){
     window.alert("Please choose a number between 8 and 128.")
     confirmPasswordLength()
   }
@@ -78,18 +78,88 @@ function makingPassword() {
     var index = Math.floor(Math.random() * totalCharacters.length)
     makePassword=makePassword+totalCharacters[index]
   }
-}
+
 makingPassword()
 
-if (confirmUpperCase === true && (totalCharacters.includes(upperCase[Any])===false)){
-  makingPassword()
-} else if (confirmLowerCase === true && (totalCharacters.includes(lowerCase[Any])=== false)){
-  makingPassword()
-} else if (confirmNumbers == true && (totalCharacters.includes(numbers[Any])=== false)) {
-  makingPassword()
-} else if (confirmSpecial=== true && (totalCharacters.includes(special[Any])=== false)){
-  makingPassword()
-} 
-return makePassword
+
+//these 4 functions check if the password contains at least 1 element in each array chosen by the confirmations. If not the first password will be deleted and another one will be made. 
+function checkUpperCase(makePassword, upperCase){
+for(let j = 0; j < passwordLength; j++) {
+             
+  for(let k = 0; k < upperCase.length; k++) {
+       
+      // Compare the element of each and
+      // every element from both of the
+      // arrays
+      if (confirmUpperCase === true && makePassword[j] !== upperCase[k]) {
+       
+          //make another password if any part of array is not included
+          makePassword = [];
+          makingPassword();
+      }
+  }
+}
 }
 
+function checkLowerCase(makePassword, lowerCase){
+  for(let j = 0; j < passwordLength; j++) {
+               
+    // Loop for array2
+    for(let k = 0; k < lowerCase.length; k++) {
+         
+        // Compare the element of each and
+        // every element from both of the
+        // arrays
+        if (confirmLowerCase === true && makePassword[j] !== lowerCase[k]) {
+         
+            //make another password if any part of array is not included
+            makePassword = [];
+            makingPassword();
+        }
+    }
+  }
+}
+
+function checkNumber(makePassword, numbers){
+  for(let j = 0; j < passwordLength.length; j++) {
+                 
+    for(let k = 0; k < numbers.length; k++) {
+           
+        // Compare the element of each and
+        // every element from both of the
+        // arrays
+        if (confirmNumbers === true && makePassword[j] !== numbers[k]) {
+           //make another password if any part of array is not included
+           makePassword = [];
+            makingPassword();
+          }
+      }
+    }
+  }
+  
+  function checkSpecial(makePassword, special){
+    for(let j = 0; j < passwordLength.length; j++) {
+                     
+      for(let k = 0; k < special.length; k++) {
+               
+          // Compare the element of each and
+          // every element from both of the
+          // arrays
+          if (confirmSpecial === true && makePassword[j] !== special[k]) {
+              //make another password if any part of array is not included
+              makePassword = [];
+              makingPassword();
+            }
+        }
+      }
+    }
+  }
+checkLowerCase()
+checkUpperCase()
+checkNumber()
+checkSpecial()
+
+
+
+return makePassword
+}
