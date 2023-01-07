@@ -70,14 +70,26 @@ if (confirmSpecial===true) {
 console.log(totalCharacters)
 
 //blank variable string for the password
-var makePassword = ""
+var makePassword = []
 
 //formula to randomly pull characters from the totalCharacters array
-for (i=0; i<passwordLength; i++){
-  var index = Math.floor(Math.random() * totalCharacters.length)
-  makePassword=makePassword+totalCharacters[index]
+function makingPassword() {
+  for (i=0; i<passwordLength; i++){
+    var index = Math.floor(Math.random() * totalCharacters.length)
+    makePassword=makePassword+totalCharacters[index]
+  }
 }
+makingPassword()
 
+if (confirmUpperCase === true && (totalCharacters.includes(upperCase[Any])===false)){
+  makingPassword()
+} else if (confirmLowerCase === true && (totalCharacters.includes(lowerCase[Any])=== false)){
+  makingPassword()
+} else if (confirmNumbers == true && (totalCharacters.includes(numbers[Any])=== false)) {
+  makingPassword()
+} else if (confirmSpecial=== true && (totalCharacters.includes(special[Any])=== false)){
+  makingPassword()
+} 
 return makePassword
 }
 
