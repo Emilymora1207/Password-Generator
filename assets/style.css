@@ -10,24 +10,28 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+
 }
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-image: url('./background1.webp');
+  background-size:cover;
 }
 
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
+  opacity: 85%;
+  /* background-color: rgb(178, 181, 170); */
 }
 
 header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: hsl(207, 15%, 12%);
 }
 
 .card {
@@ -35,7 +39,7 @@ header {
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+  color: hsl(207, 15%, 12%);
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
